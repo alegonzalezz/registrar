@@ -1,0 +1,292 @@
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  /* Backgrounds */
+  --bg: #f8fafc;
+  --bg-surface: #ffffff;
+  --bg-elevated: #f1f5f9;
+
+  /* Borders */
+  --border: #e2e8f0;
+
+  /* Text */
+  --text-primary: #0f172a;
+  --text-secondary: #475569;
+  --text-muted: #94a3b8;
+
+  /* Macros */
+  --color-protein: #3b82f6;
+  --color-carbs: #f97316;
+  --color-fat: #eab308;
+  --color-calories: #22c55e;
+
+  /* UI */
+  --color-primary: #22c55e;
+  --color-primary-hover: #16a34a;
+  --color-danger: #ef4444;
+  --color-danger-hover: #dc2626;
+
+  /* Layout */
+  --navbar-h: 56px;
+  --bottom-nav-h: 64px;
+  --radius: 8px;
+  --radius-lg: 12px;
+  --max-w: 800px;
+}
+
+[data-theme="dark"] {
+  --bg: #0a0f1e;
+  --bg-surface: #141b2d;
+  --bg-elevated: #1e2a3a;
+  --border: #2d3d50;
+  --text-primary: #e2e8f0;
+  --text-secondary: #94a3b8;
+  --text-muted: #475569;
+}
+
+html, body {
+  height: 100%;
+  background-color: var(--bg);
+  color: var(--text-primary);
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  transition: background-color 0.2s, color 0.2s;
+}
+
+/* ── Layout ─────────────────────────────────── */
+
+.layout {
+  min-height: 100dvh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ── Navbar ──────────────────────────────────── */
+
+.navbar {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  height: var(--navbar-h);
+  background-color: var(--bg-surface);
+  border-bottom: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  padding: 0 1.5rem;
+  gap: 1rem;
+}
+
+.navbar-brand {
+  font-weight: 700;
+  font-size: 1.1rem;
+  color: var(--color-primary);
+  letter-spacing: -0.5px;
+  flex-shrink: 0;
+}
+
+.navbar-links {
+  display: flex;
+  gap: 0.125rem;
+  flex: 1;
+}
+
+.navbar-links a,
+.navbar-links a:visited {
+  padding: 0.375rem 0.75rem;
+  border-radius: var(--radius);
+  text-decoration: none;
+  font-size: 0.875rem;
+  color: var(--text-secondary);
+  transition: color 0.15s, background-color 0.15s;
+}
+
+.navbar-links a:hover {
+  color: var(--text-primary);
+  background-color: var(--bg-elevated);
+}
+
+.navbar-links a.active {
+  color: var(--color-primary);
+  background-color: color-mix(in srgb, var(--color-primary) 12%, transparent);
+  font-weight: 500;
+}
+
+.theme-toggle {
+  margin-left: auto;
+  flex-shrink: 0;
+  padding: 0.375rem 0.875rem;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: transparent;
+  color: var(--text-secondary);
+  font-size: 0.8rem;
+  cursor: pointer;
+  transition: background-color 0.15s;
+}
+
+.theme-toggle:hover {
+  background-color: var(--bg-elevated);
+}
+
+/* ── Main content ────────────────────────────── */
+
+.content {
+  flex: 1;
+  padding: 1.5rem;
+  padding-bottom: 2rem;
+  max-width: var(--max-w);
+  width: 100%;
+  margin: 0 auto;
+}
+
+/* ── Bottom nav (mobile only) ────────────────── */
+
+.bottom-nav {
+  display: none;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: var(--bottom-nav-h);
+  background-color: var(--bg-surface);
+  border-top: 1px solid var(--border);
+  z-index: 100;
+}
+
+.bottom-nav a {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  font-size: 0.7rem;
+  color: var(--text-muted);
+  transition: color 0.15s;
+}
+
+.bottom-nav a.active {
+  color: var(--color-primary);
+  font-weight: 600;
+}
+
+/* ── Page base ───────────────────────────────── */
+
+.page {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.page-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+.page-subtitle {
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+  margin-top: -1rem;
+}
+
+/* ── Card ────────────────────────────────────── */
+
+.card {
+  background-color: var(--bg-surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 1.25rem;
+}
+
+/* ── Buttons ─────────────────────────────────── */
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.5rem 1rem;
+  border-radius: var(--radius);
+  font-size: 0.875rem;
+  font-weight: 500;
+  cursor: pointer;
+  border: none;
+  transition: background-color 0.15s, opacity 0.15s;
+}
+
+.btn-primary {
+  background-color: var(--color-primary);
+  color: #fff;
+}
+
+.btn-primary:hover {
+  background-color: var(--color-primary-hover);
+}
+
+.btn-danger {
+  background-color: var(--color-danger);
+  color: #fff;
+}
+
+.btn-danger:hover {
+  background-color: var(--color-danger-hover);
+}
+
+.btn-ghost {
+  background-color: transparent;
+  color: var(--text-secondary);
+  border: 1px solid var(--border);
+}
+
+.btn-ghost:hover {
+  background-color: var(--bg-elevated);
+}
+
+/* ── Inputs ──────────────────────────────────── */
+
+.input {
+  width: 100%;
+  padding: 0.5rem 0.75rem;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background-color: var(--bg-surface);
+  color: var(--text-primary);
+  font-size: 0.875rem;
+  transition: border-color 0.15s;
+}
+
+.input:focus {
+  outline: none;
+  border-color: var(--color-primary);
+}
+
+.input::placeholder {
+  color: var(--text-muted);
+}
+
+/* ── Macro badges ────────────────────────────── */
+
+.macro-protein { color: var(--color-protein); }
+.macro-carbs   { color: var(--color-carbs); }
+.macro-fat     { color: var(--color-fat); }
+.macro-cal     { color: var(--color-calories); }
+
+/* ── Responsive ──────────────────────────────── */
+
+@media (max-width: 768px) {
+  .navbar-links {
+    display: none;
+  }
+
+  .bottom-nav {
+    display: flex;
+  }
+
+  .content {
+    padding: 1rem;
+    padding-bottom: calc(1rem + var(--bottom-nav-h));
+  }
+}

@@ -25,7 +25,7 @@ export default function App() {
         <span className="navbar-brand">Macros</span>
         <nav className="navbar-links">
           <NavLink to="/">Dashboard</NavLink>
-          <NavLink to="/catalogo">Catálogo</NavLink>
+          {import.meta.env.DEV && <NavLink to="/catalogo">Catálogo</NavLink>}
           <NavLink to="/registro">Registro</NavLink>
           <NavLink to="/goals">Metas</NavLink>
           <NavLink to="/historial">Historial</NavLink>
@@ -43,7 +43,7 @@ export default function App() {
       <main className="content">
         <Routes>
           <Route path="/" element={<Dashboard />} />
-          <Route path="/catalogo" element={<Catalogo />} />
+          {import.meta.env.DEV && <Route path="/catalogo" element={<Catalogo />} />}
           <Route path="/registro" element={<Registro />} />
           <Route path="/goals" element={<Goals />} />
           <Route path="/historial" element={<Historial />} />
@@ -53,7 +53,7 @@ export default function App() {
 
       <nav className="bottom-nav">
         <NavLink to="/">Dashboard</NavLink>
-        <NavLink to="/catalogo">Catálogo</NavLink>
+        {import.meta.env.DEV && <NavLink to="/catalogo">Catálogo</NavLink>}
         <NavLink to="/registro">Registro</NavLink>
         <NavLink to="/goals">Metas</NavLink>
         <NavLink to="/historial">Historial</NavLink>

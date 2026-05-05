@@ -17,12 +17,12 @@
 **Objetivo:** CRUD de alimentos guardados en localStorage
 **Depende de:** T0
 
-- [ ] Modelo de dato: `{ key, nombre, proteina, carbs, grasa, calorias }`
-- [ ] Agregar alimento (form con los 5 campos)
-- [ ] Listar alimentos
-- [ ] Editar alimento existente
-- [ ] Eliminar alimento
-- [ ] Filtrar/buscar por nombre en tiempo real
+- [x] Modelo de dato: `{ key, nombre, proteina, carbs, grasa, calorias }`
+- [x] Agregar alimento (form con los 5 campos)
+- [x] Listar alimentos
+- [x] Editar alimento existente
+- [x] Eliminar alimento
+- [x] Filtrar/buscar por nombre en tiempo real
 
 **Entrega:** Puedo cargar "Pollo pecho" con sus macros y verlo en la lista
 
